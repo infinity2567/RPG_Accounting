@@ -1,0 +1,69 @@
+#META
+weekno=1.0
+instability=0.25
+bonus=0.25
+debt_payment_pct=0.5
+exp_gain=0.05
+
+#INCOME
+cullwoodmill_investment__revenue=0, (0,1000)
+lena_investment__revenue=0.1, (0,1000)
+shkur_smith__revenue=0.2, (400,4000)
+
+#WAGES
+gar_wage=0
+greshra_wage=25
+celya_wage=25
+vinn_wage=25
+erme_wage=25
+gil_wage=25
+glorja_wage=25
+shkur_wage=25
+zek_wage=25
+
+#DEBT
+lenny_debt=1000
+divineorder_debt=2000
+
+#SAVINGS
+lenny_deposit=2000
+submarine_deposit=2000
+personal_deposit=300
+
+#EFFECTS
+reimond_in_power__market=-0.1
+driftwood_irrelevance__market=-0.1
+paradise_migriants__market=0.2
+racial_equality__market=0.2
+free_speech__market=0.3
+roads_security__market=0.2
+cullwoods_elves_friendly__market=0.1
+lonewolves_disbanded__market=0.2
+
+end=1
+-------------------
+GUIDE
+
+#META
+weekno -> just informative. Best not touch.
+instability -> Market instability. Higher values cause larger positive or negative variations in total_income. 
+bonus -> percentage of total income that is alocated to team bonuses
+debt_payment_pct -> percentage of total income that gets alocated to pay debts
+exp_gain -> how much all revenue sources gain exp each week. Can be set to 0 for no experience gain. Negatives numbers break the script.
+
+#INCOME
+[incomesource]__revenue= [current progress, from 0 to 1], ([lower bound], [upper bound])
+
+#WAGES
+[employee name]_wage = [minimum wage]
+
+#DEBT
+[creditor name]_debt=[amount owed]
+note: the topmost creditor gets paid first. There is no mechanism for distributed debt payment.
+
+#SAVINGS
+[deposit manager/location]_deposit=[amount saved]
+
+#EFFECTS
+[market effect]__market=[market effect impact, from -infinity to +infinity; +-0.05 is a weak effect; +-0.1 is moderate; +-0.3 strong; +-1 very strong ]
+note: the sum of market effects determines how much the market influences total income. If the sum is below 1, sources of income may be 0. Below 0, income will almost always be 0. Expenses still need to be paid, resulting in debt.
